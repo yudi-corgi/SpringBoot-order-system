@@ -34,3 +34,4 @@ out/
 target/
 *.class
 *.log
+src/test/
