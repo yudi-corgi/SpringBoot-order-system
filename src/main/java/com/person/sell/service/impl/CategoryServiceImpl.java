@@ -4,9 +4,11 @@ import com.person.sell.dataobject.ProductCategory;
 import com.person.sell.repository.ProductCategoryRepository;
 import com.person.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
