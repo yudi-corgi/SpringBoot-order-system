@@ -31,5 +31,4 @@ public class ProductInfo {
 
     private Integer categoryType;
 
-    private Date createTime;
 }
