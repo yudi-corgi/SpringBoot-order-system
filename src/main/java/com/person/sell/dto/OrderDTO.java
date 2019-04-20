@@ -1,23 +1,18 @@
-package com.person.sell.dataobject;
+package com.person.sell.dto;
 
+import com.person.sell.dataobject.OrderDetail;
 import com.person.sell.enums.OrderStatusEnum;
 import com.person.sell.enums.PayStatusEnum;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
+import org.aspectj.weaver.ast.Or;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-@Entity
 @Data
-@DynamicUpdate
-public class OrderMaster {
+public class OrderDTO {
 
-    @Id
     private String orderId;
 
     private String buyerName;
@@ -33,13 +28,14 @@ public class OrderMaster {
     private BigDecimal orderAmount;
 
     /** 订单状态  0: 默认新下单 */
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     /** 支付状态，默认未支付：0 */
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     private Date createTime;
 
     private Date updateTime;
 
+    private List<OrderDetail> orderDetailList;
 }
