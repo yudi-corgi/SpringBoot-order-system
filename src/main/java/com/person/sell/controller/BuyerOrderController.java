@@ -7,6 +7,7 @@ import com.person.sell.dto.OrderDTO;
 import com.person.sell.enums.ResultEnum;
 import com.person.sell.exception.SellException;
 import com.person.sell.form.OrderForm;
+import com.person.sell.service.BuyerService;
 import com.person.sell.service.OrderService;
 import com.person.sell.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,9 @@ public class BuyerOrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -55,6 +59,7 @@ public class BuyerOrderController {
         return ResultVOUtil.success(map);
 
     }
+
     //订单列表
     @GetMapping("/list")
     public ResultVO<List<OrderDTO>> list(@RequestParam("openid") String openid,
@@ -70,8 +75,21 @@ public class BuyerOrderController {
         Page<OrderDTO> orderDTOPage = orderService.findList(openid,pageRequest);
         return ResultVOUtil.success(orderDTOPage.getContent());
     }
+
     //订单详情
+    @GetMapping("/detail")
+    public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
+                                     @RequestParam("orderId") String orderId){
+        OrderDTO orderDTO = buyerService.findOrderOne(openid,orderId);
+        return ResultVOUtil.success(orderDTO);
+    }
 
     //取消订单
+    @PostMapping("/cancel")
+    public ResultVO cancel(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") String orderId){
 
+        buyerService.cancelOrder(openid,orderId);
+        return ResultVOUtil.success();
+    }
 }
