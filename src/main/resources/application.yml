@@ -14,10 +14,14 @@ server:
     context-path: /sell
 
 #日志配置
-logging:
-  pattern:
-    console: "%d - %msg%n"
-  path: #日志文件的存放位置，默认命名 spring.log
-  file: #日志文件的存放位置并命名
-  level: #指定日志级别
-    com.person.sell.LoggerTest: debug #可以指定某个类的日志级别
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  path: #日志文件的存放位置，默认命名 spring.log
+#  file: #日志文件的存放位置并命名
+#  level: #指定日志级别
+#    com.person.sell.LoggerTest: debug #可以指定某个类的日志级别
+
+wechat:
+  mpAppId: wx3cc7bcd8b9d854c1
+  mpAppSecret: 71a52df59608efa5625e6be038d7f964
