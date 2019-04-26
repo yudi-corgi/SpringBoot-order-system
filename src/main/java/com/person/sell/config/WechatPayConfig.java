@@ -4,7 +4,9 @@ import com.lly835.bestpay.config.WxPayH5Config;
 import com.lly835.bestpay.service.impl.BestPayServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class WechatPayConfig {
 
     @Autowired
