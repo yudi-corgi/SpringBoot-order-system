@@ -82,7 +82,6 @@ public class SellerOrderController {
         OrderDTO orderDTO = new OrderDTO();
         try {
             orderDTO = orderService.findOne(orderId);
-            orderService.cancel(orderDTO);
         }catch (SellException e){
             log.error("【卖家端查询订单详情】发生异常{}",e);
             map.put("msg", e.getMessage());
