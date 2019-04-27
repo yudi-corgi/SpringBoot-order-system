@@ -1,10 +1,12 @@
 package com.person.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.person.sell.dataobject.OrderDetail;
 import com.person.sell.enums.OrderStatusEnum;
 import com.person.sell.enums.PayStatusEnum;
+import com.person.sell.utils.EnumUtil;
 import com.person.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 import org.aspectj.weaver.ast.Or;
@@ -46,4 +48,19 @@ public class OrderDTO {
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList;
+
+    /*
+        通过状态 获取状态信息(enum )
+        添加注解 @JsonIgnore 是因为该对象若转为JSON格式传递给前端，
+        以下两个方法会变成属性字段(name是方法名)，用注解忽略掉这两个方法
+     */
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum(){
+        return EnumUtil.getByCode(orderStatus,OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum(){
+        return EnumUtil.getByCode(payStatus,PayStatusEnum.class);
+    }
 }
