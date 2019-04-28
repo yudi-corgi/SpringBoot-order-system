@@ -43,7 +43,7 @@
                             <a href="/sell/seller/product/index?productId=${product.productId}">修改</a>
                         </td>
                         <td>
-                            <#if product.getProductStatusEnum().msg == "在架">
+                            <#if product.getProductStatusEnum().message == "在架">
                                 <a href="/sell/seller/product/off_sale?productId=${product.productId}">下架</a>
                             <#else>
                                 <a href="/sell/seller/product/on_sale?productId=${product.productId}">上架</a>
