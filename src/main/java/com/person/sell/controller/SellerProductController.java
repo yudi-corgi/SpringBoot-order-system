@@ -1,6 +1,7 @@
 package com.person.sell.controller;
 
 import com.person.sell.dataobject.ProductInfo;
+import com.person.sell.exception.SellException;
 import com.person.sell.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,5 +41,43 @@ public class SellerProductController {
         return new ModelAndView("product/list",map);
     }
 
+    /**
+     * 商品上架
+     * @param productId
+     * @param map
+     * @return
+     */
+    @GetMapping("/on_sale")
+    public ModelAndView onSale(@RequestParam("productId") String productId,
+                               Map<String,Object> map){
+        try{
+            productInfoService.onSale(productId);
+        }catch (SellException e){
+            map.put("msg",e.getMessage());
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/error",map);
+        }
+        map.put("url","/sell/seller/product/list");
+        return new ModelAndView("common/success",map);
+    }
 
+    /**
+     * 商品上架
+     * @param productId
+     * @param map
+     * @return
+     */
+    @GetMapping("/off_sale")
+    public ModelAndView offSale(@RequestParam("productId") String productId,
+                               Map<String,Object> map){
+        try{
+            productInfoService.offSale(productId);
+        }catch (SellException e){
+            map.put("msg",e.getMessage());
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/error",map);
+        }
+        map.put("url","/sell/seller/product/list");
+        return new ModelAndView("common/success",map);
+    }
 }
