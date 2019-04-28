@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * 前端提交订单信息对象
+ */
 @Data
 public class OrderForm {
 
