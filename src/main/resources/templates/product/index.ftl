@@ -38,7 +38,7 @@
                                     <#list productCategoryList as list>
                                         <option value="${list.categoryType}"
                                                 <#--?? 表示 判断是否存在-->
-                                            <#if (productInfo.categoryType??) && productInfo.categoryType == list.categoryType>
+                                            <#if (productInfo.categoryType)?? && productInfo.categoryType == list.categoryType>
                                                 selected
                                             </#if>>
                                             ${list.categoryName}
@@ -46,7 +46,7 @@
                                     </#list>
                                 </select>
                             </div>
-                            <input type="text" name="productId" value="${(productInfo.productId)!''}">
+                            <input hidden type="text" name="productId" value="${(productInfo.productId)!''}">
                             <button type="submit" class="btn btn-default">提交</button>
                         </form>
                     </div>

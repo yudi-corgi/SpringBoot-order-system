@@ -19,7 +19,7 @@
                                 <label >type</label>
                                 <input name="categoryType" type="number" class="form-control" value="${(productCategory.categoryType)!''}"/>
                             </div>
-                            <input type="text" name="categoryId" value="${(productCategory.categoryId)!''}">
+                            <input hidden type="text" name="categoryId" value="${(productCategory.categoryId)!''}">
                             <button type="submit" class="btn btn-default">提交</button>
                         </form>
                     </div>
