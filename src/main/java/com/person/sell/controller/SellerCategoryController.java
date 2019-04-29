@@ -48,7 +48,7 @@ public class SellerCategoryController {
      * @return
      */
     @GetMapping("/index")
-    public ModelAndView index(@RequestParam(value = "categoryId") Integer categoryId,
+    public ModelAndView index(@RequestParam(value = "categoryId",required = false) Integer categoryId,
                               Map<String,Object> map){
 
         if(categoryId != null){
@@ -81,6 +81,7 @@ public class SellerCategoryController {
                 productCategory = categoryService.findOne(form.getCategoryId());
             }
             BeanUtils.copyProperties(form, productCategory);
+            categoryService.save(productCategory);
         }catch (SellException e){
             map.put("msg",e.getMessage());
             map.put("url","/sell/seller/category/index");
