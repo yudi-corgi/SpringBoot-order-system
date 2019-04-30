@@ -30,6 +30,11 @@ public class WechatController {
     @Autowired
     private WxMpService wxMpService;
 
+    /**
+     * 用户访问时通过微信授权
+     * @param returnUrl
+     * @return
+     */
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl){
 
@@ -55,5 +60,10 @@ public class WechatController {
         String openId = wxMpOAuth2AccessToken.getOpenId();
         log.info("【code】{}",code);
         return "redirect:"+returnUrl+"?openid="+openId;
+    }
+
+    @GetMapping("/qrAuthorize")
+    public void qrAuthorize(){
+
     }
 }

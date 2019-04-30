@@ -25,6 +25,8 @@ server:
 wechat:
   mpAppId: wx3cc7bcd8b9d854c1
   mpAppSecret: 71a52df59608efa5625e6be038d7f964
+  openAppId:
+  openAppSecret:
   mchId:
   mchKey:
   keyPath:
