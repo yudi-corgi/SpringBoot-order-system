@@ -1,5 +1,6 @@
 package com.person.sell.controller;
 
+import com.person.sell.config.ProjectUrlConfig;
 import com.person.sell.enums.ResultEnum;
 import com.person.sell.exception.SellException;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,9 @@ public class WechatController {
     @Autowired
     private WxMpService wxMpService;
 
+    @Autowired
+    private ProjectUrlConfig projectUrlConfig;
+
     /**
      * 用户访问时通过微信授权
      * @param returnUrl
@@ -40,7 +44,7 @@ public class WechatController {
 
         //1. 配置对象
         //2. 调用方法
-        String url = "http://vziq3p.natappfree.cc/sell/wechat/userInfo";
+        String url = "http://chfqd7.natappfree.cc/sell/wechat/userInfo";
         //返回结果是要重定向的URl,参数 Url 是重定向连接地址
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_USERINFO, URLEncoder.encode(returnUrl));
         log.info("【重定向url地址】{}",redirectUrl);
@@ -62,8 +66,4 @@ public class WechatController {
         return "redirect:"+returnUrl+"?openid="+openId;
     }
 
-    @GetMapping("/qrAuthorize")
-    public void qrAuthorize(){
-
-    }
 }

@@ -16,13 +16,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label >账户</label>
-                                    <input name="categoryName" type="text" class="form-control"/>
+                                    <input name="username" type="text" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label >密码</label>
-                                    <input name="categoryType" type="password" class="form-control"/>
+                                    <input name="password" type="password" class="form-control"/>
                                 </div>
-                                <input hidden type="text" name="categoryId" value="${(productCategory.categoryId)!''}">
                                 <button type="submit" class="btn btn-default">登录</button>
                                 <button type="reset" class="btn btn-default">撤销</button>
                             </form>

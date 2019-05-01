@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * 微信公众平台获取用户授权配置
+ */
 
 @Component
 public class WechatMpConfig {

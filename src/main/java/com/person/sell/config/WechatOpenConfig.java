@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 微信二维码扫码登录相关配置
- * 开放平台ID和Secret
+ * 开放平台ID和Secret，无相关账号信息，功能搁置
  */
 
 @Component

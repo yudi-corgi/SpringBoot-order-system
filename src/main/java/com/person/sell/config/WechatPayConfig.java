@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 微信支付配置
+ * 但无相关账号信息，功能搁置
+ */
 @Configuration
 public class WechatPayConfig {
 
