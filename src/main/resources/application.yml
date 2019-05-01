@@ -38,6 +38,6 @@ wechat:
 
 projecturl:
   wechatMpAuthorize: http://chfqd7.natappfree.cc
-  WechatOpenAuthorize:
-  userLoginUrl:
-  sell:
+  WechatOpenAuthorize: http://chfqd7.natappfree.cc
+  userLoginUrl: http://chfqd7.natappfree.cc
+  sell: http://chfqd7.natappfree.cc
