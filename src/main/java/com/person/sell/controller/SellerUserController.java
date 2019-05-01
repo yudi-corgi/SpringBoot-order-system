@@ -72,14 +72,15 @@ public class SellerUserController {
             return new ModelAndView("common/error",map);
         }
         //2. 设置token至redis
-        String token = UUID.randomUUID().toString(); //随机生成字符串
+        //String token = UUID.randomUUID().toString(); //随机生成字符串
+
         Integer expire = RedisConstant.EXPIRE;
         //设置 redis，最后参数是将 expire 格式设置为秒
         redisTemplate.opsForValue().set(
-                String.format(RedisConstant.TOKEN_PREFIX,token),
-                sellerLoginForm.getUsername(),expire, TimeUnit.SECONDS);
+                String.format(RedisConstant.TOKEN_PREFIX,sellerLoginForm.getUsername()),
+                sellerLoginForm.getPassword(),expire, TimeUnit.SECONDS);
         //3. 设置token至cookie
-        CookieUtil.set(response, CookieConstant.TOKEN,token,expire);
+        CookieUtil.set(response, CookieConstant.TOKEN,sellerLoginForm.getUsername(),expire);
         return new ModelAndView("redirect:"+projectUrlConfig.getSell()+"/sell/seller/order/list");
     }
 
