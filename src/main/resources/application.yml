@@ -31,3 +31,8 @@ wechat:
   mchKey:
   keyPath:
   notifyUrl:
+
+projecturl:
+  wechatMpAuthorize: ad
+  userLoginUrl: ad
+  sell: ad
