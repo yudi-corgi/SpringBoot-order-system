@@ -10,7 +10,7 @@
                 <div class="container-fluid">
                     <div class="row clearfix">
                         <div class="col-md-6 column">
-                            <form role="form" method="post" action="/sell/seller/category/save">
+                            <form role="form" method="post" action="/sell/seller/login">
                                 <div class="form-group">
                                     <h2 style="color: #136b7a">请登录</h2>
                                 </div>

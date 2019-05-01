@@ -12,6 +12,9 @@ public class ProjectUrlConfig {
     //微信公众账号授权url
     public String wechatMpAuthorize;
 
+    //微信开放平台url
+    public String WechatOpenAuthorize;
+
     //用户登录url
     public String userLoginUrl;
 

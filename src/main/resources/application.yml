@@ -9,6 +9,10 @@ spring:
     #配置数据字段为空，则不传递到前台
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 10.137.39.91
+    port: 6379
+    #password 有密码配置密码
 server:
   servlet:
     context-path: /sell
@@ -33,6 +37,7 @@ wechat:
   notifyUrl:
 
 projecturl:
-  wechatMpAuthorize: ad
-  userLoginUrl: ad
-  sell: ad
+  wechatMpAuthorize: http://chfqd7.natappfree.cc
+  WechatOpenAuthorize:
+  userLoginUrl:
+  sell:

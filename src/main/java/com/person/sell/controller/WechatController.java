@@ -44,7 +44,7 @@ public class WechatController {
 
         //1. 配置对象
         //2. 调用方法
-        String url = "http://chfqd7.natappfree.cc/sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatMpAuthorize() + "/sell/wechat/userInfo";
         //返回结果是要重定向的URl,参数 Url 是重定向连接地址
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_USERINFO, URLEncoder.encode(returnUrl));
         log.info("【重定向url地址】{}",redirectUrl);
