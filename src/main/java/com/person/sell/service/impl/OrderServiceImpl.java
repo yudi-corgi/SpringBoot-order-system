@@ -15,6 +15,7 @@ import com.person.sell.repository.OrderMaterRepository;
 import com.person.sell.service.OrderService;
 import com.person.sell.service.ProductInfoService;
 import com.person.sell.service.PushMessageService;
+import com.person.sell.service.WebSocket;
 import com.person.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -48,6 +49,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PushMessageService pushMessageService;
+
+    @Autowired
+    private WebSocket webSocket;
 
     /**
      * 创建订单
@@ -103,6 +107,9 @@ public class OrderServiceImpl implements OrderService {
                                 .map(e -> new CartDTO(e.getProductId(),e.getProductQuantity()))
                                 .collect(Collectors.toList());
         productInfoService.decreaseStock(cartDTOList);
+
+        //发送 websocket 消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }

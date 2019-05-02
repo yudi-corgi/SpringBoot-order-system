@@ -61,19 +61,19 @@
                     <#if currentPage lte 1>
                         <li class="disabled"><a href="#">逆滑</a></li>
                     <#else>
-                        <li><a href="sell/seller/product/list?page=${currentPage-1}&size=${size}">逆滑</a></li>
+                        <li><a href="/sell/seller/product/list?page=${currentPage-1}&size=${size}">逆滑</a></li>
                     </#if>
                     <#list 1..productInfoPage.getTotalPages() as index>
                         <#if currentPage == index >
                             <li class="disabled"><a href="#">${index}</a></li>
                         <#else>
-                            <li><a href="sell/seller/product/list?page=${index}&size=${size}">${index}</a></li>
+                            <li><a href="/sell/seller/product/list?page=${index}&size=${size}">${index}</a></li>
                         </#if>
                     </#list>
                     <#if currentPage gte productInfoPage.getTotalPages()>
                         <li class="disabled"><a href="#">顺溜</a></li>
                     <#else>
-                        <li><a href="sell/seller/product/list?page=${currentPage+1}&size=${size}">顺溜</a></li>
+                        <li><a href="/sell/seller/product/list?page=${currentPage+1}&size=${size}">顺溜</a></li>
                     </#if>
                         </ul>
                     </div>
