@@ -15,9 +15,6 @@ public class ProjectUrlConfig {
     //微信开放平台url
     public String WechatOpenAuthorize;
 
-    //用户登录url
-    public String userLoginUrl;
-
     //系统url
     public String sell;
 }
