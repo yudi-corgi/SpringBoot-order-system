@@ -9,6 +9,7 @@ import com.person.sell.dto.OrderDTO;
 import com.person.sell.enums.OrderStatusEnum;
 import com.person.sell.enums.PayStatusEnum;
 import com.person.sell.enums.ResultEnum;
+import com.person.sell.exception.ResponseException;
 import com.person.sell.exception.SellException;
 import com.person.sell.repository.OrderDetailRepository;
 import com.person.sell.repository.OrderMaterRepository;
@@ -72,10 +73,6 @@ public class OrderServiceImpl implements OrderService {
         //1. 查询商品（数量，价格）
         for(OrderDetail orderDetail:orderDTO.getOrderDetailList()){
             ProductInfo productInfo = productInfoService.findOne(orderDetail.getProductId());
-            if(productInfo == null){
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
-            }
-
             //2. 计算订单总价
             orderAmount = productInfo.getProductPrice()
                     .multiply(new BigDecimal(orderDetail.getProductQuantity()))

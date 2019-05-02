@@ -4,6 +4,7 @@ import com.person.sell.dataobject.ProductInfo;
 import com.person.sell.dto.CartDTO;
 import com.person.sell.enums.ProductStatusEnum;
 import com.person.sell.enums.ResultEnum;
+import com.person.sell.exception.ResponseException;
 import com.person.sell.exception.SellException;
 import com.person.sell.repository.ProductInfoRepository;
 import com.person.sell.service.ProductInfoService;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ProductInfoServiceImpl implements ProductInfoService {
@@ -23,7 +25,16 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
     @Override
     public ProductInfo findOne(String productId) {
-        return repository.findById(productId).get();
+        ProductInfo productInfo = null;
+        try{
+            productInfo = repository.findById(productId).get();
+        }catch (NoSuchElementException e){
+            //throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            //抛出此异常仅仅是为了测试修改状态码（若无设置，异常捕获返回状态为200）
+            throw new ResponseException();
+
+        }
+        return productInfo;
     }
 
     @Override
