@@ -35,8 +35,10 @@ wechat:
   mchKey:
   keyPath:
   notifyUrl:
-
+  templateId:
+    orderStatus: 20HLWBCMn2gUbnKuTxYzyUmeCmSgNwPewKEyYKIcrXU
+    #模板ID可以多个
 projecturl:
-  wechatMpAuthorize: http://tpr95c.natappfree.cc
-  WechatOpenAuthorize: http://tpr95c.natappfree.cc
-  sell: http://tpr95c.natappfree.cc
+  wechatMpAuthorize: http://jsgzj9.natappfree.cc
+  WechatOpenAuthorize: http://jsgzj9.natappfree.cc
+  sell: http://jsgzj9.natappfree.cc

@@ -14,6 +14,7 @@ import com.person.sell.repository.OrderDetailRepository;
 import com.person.sell.repository.OrderMaterRepository;
 import com.person.sell.service.OrderService;
 import com.person.sell.service.ProductInfoService;
+import com.person.sell.service.PushMessageService;
 import com.person.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -44,6 +45,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMaterRepository orderMaterRepository;
+
+    @Autowired
+    private PushMessageService pushMessageService;
 
     /**
      * 创建订单
@@ -194,6 +198,9 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】更新失败，orderMaster={}",orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+
+        //订单完结推送模板消息给用户
+        pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
 

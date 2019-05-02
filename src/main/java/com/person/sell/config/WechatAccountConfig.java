@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * 微信账号相关配置
  *
@@ -27,4 +29,5 @@ public class WechatAccountConfig {
     private String mchKey;  //商户密钥
     private String keyPath; //商户证书路径
     private String notifyUrl; //微信支付异步通知地址
+    private Map<String,String> templateId; //微信消息模板Id
 }
