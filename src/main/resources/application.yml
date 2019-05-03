@@ -42,3 +42,16 @@ projecturl:
   wechatMpAuthorize: http://jsgzj9.natappfree.cc
   WechatOpenAuthorize: http://jsgzj9.natappfree.cc
   sell: http://jsgzj9.natappfree.cc
+
+#设置 mapper 包日志级别为 trace，会打印 sql 语句
+logging:
+  level:
+    com.person.sell.dataobject.mapper: trace
+#当 mybatis 使用 xml 方式编写 sql 时，指定 mapper 文件位置:
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.person.sell.dataobject.ProductCategory
+  configuration:
+    map-underscore-to-camel-case: true  #驼峰命名
+    use-generated-keys: true            #数据操作后返回主键值
+    use-column-label: true              #使用列别名代替列名
