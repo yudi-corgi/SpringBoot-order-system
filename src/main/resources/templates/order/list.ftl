@@ -116,7 +116,7 @@
     //判断浏览器是否支持 websocket
     if ('websocket' in window) {
         //url 是ws协议，非http协议
-        websocket = new WebSocket('ws://jsgzj9.natappfree.cc/sell/webSocket')
+        websocket = new WebSocket('ws://hxxuyh.natappfree.cc/sell/webSocket')
     } else {
         alert('该浏览器不支持websocket')
     }

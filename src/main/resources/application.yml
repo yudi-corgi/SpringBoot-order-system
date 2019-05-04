@@ -39,9 +39,9 @@ wechat:
     orderStatus: 20HLWBCMn2gUbnKuTxYzyUmeCmSgNwPewKEyYKIcrXU
     #模板ID可以多个
 projecturl:
-  wechatMpAuthorize: http://jsgzj9.natappfree.cc
-  WechatOpenAuthorize: http://jsgzj9.natappfree.cc
-  sell: http://jsgzj9.natappfree.cc
+  wechatMpAuthorize: http://hxxuyh.natappfree.cc
+  WechatOpenAuthorize: http://hxxuyh.natappfree.cc
+  sell: http://hxxuyh.natappfree.cc
 
 #设置 mapper 包日志级别为 trace，会打印 sql 语句
 logging:

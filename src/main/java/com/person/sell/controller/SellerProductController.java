@@ -10,6 +10,8 @@ import com.person.sell.service.ProductInfoService;
 import com.person.sell.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -96,7 +98,7 @@ public class SellerProductController {
     }
 
     /**
-     * 商品新增与修改
+     * 商品新增与修改页面数据查询
      * @param productId
      * @param map
      * @return
@@ -124,6 +126,10 @@ public class SellerProductController {
      * @return
      */
     @PostMapping("/save")
+    //@CachePut与@Cacheable 区别是：Put 不会先检查缓存中是否存在key，而是每次执行完方法后将值添加(或覆盖)到缓存中
+    //@CachePut(cacheNames = "product",key = "123")
+    //@CacheEvict 表示执行完该方法后清除redis中的product缓存组件中key为123的键值对
+    @CacheEvict(cacheNames = "product",key = "123")
     public ModelAndView save(@Valid ProductForm form, BindingResult bindingResult,
                              Map<String,Object> map){
 
