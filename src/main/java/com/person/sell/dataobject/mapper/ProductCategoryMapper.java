@@ -14,8 +14,6 @@ public interface ProductCategoryMapper {
     /*
         用注解方式实现，编写原生SQL语句
      */
-
-
     //插入数据
     //插入多少条记录，返回数值就是多少，此处多个参数用map传递需要设置key与参数名对应
     @Insert("insert into product_category(category_name,category_type) values" +
